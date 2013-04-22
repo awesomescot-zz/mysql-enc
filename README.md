@@ -1,4 +1,4 @@
 mysql-enc
 =========
 
-Puppet enc that uses mysql
+Puppet enc that uses mysql for the backend

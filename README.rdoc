@@ -18,17 +18,17 @@ You will need to create a file called config.yml in the directory with the scrip
 Thus far this is a very simple implimentation of an enc.  I'm just storing environment and classes in the db for a givin node.
 
 === addNode.rb
-Usage: addNode.rb FQDN ENVIRONMENT [CLASSES]
-
-eg: addNode.rb web2.my.domain prod web_server api_lb_server
-
-OPTIONS:
+ Usage: addNode.rb FQDN ENVIRONMENT [CLASSES]
+ eg: ./addNode.rb test.my.domain test web_server api_lb_server
+ OPTIONS:
     -h, --help                       help
+
+You can have any number of classes, including zero.  But you must have a fqdn(fully qualified domain name) and an environment.
 
 === classify.rb
 This is the file that puppet will call with the fqdn.  It will return yaml of the node's classes and environment.  If the node is not found it returns nothing, but has an exit status of 0, so there is no error.  This is so that you can have a node that is defined in site.pp and not in the db.
 
-eg. classify.rb test.my.domain
+ eg. classify.rb test.my.domain
 
 === createDB.rb
 This will drop and then create a db called 'enc'

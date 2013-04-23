@@ -7,13 +7,10 @@ mysql-enc is a puppet enc (external node classifier) that uses mysql for the bac
 
 You will need to create a file called config.yml in the directory with the scripts.  It should look like this:
 
-db_host: HOSTNAME_OF_DB
-
-db_user: DB_USERNAME
-
-db_password: DB_PASSWORD
-
-db_name: NAME_OF_THE_DB_YOU_WOULD_LIKE_TO_USE
+ db_host: HOSTNAME_OF_DB
+ db_user: DB_USERNAME
+ db_password: DB_PASSWORD
+ db_name: NAME_OF_THE_DB_YOU_WOULD_LIKE_TO_USE
 
 
 ## Documentation

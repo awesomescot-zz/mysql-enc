@@ -4,6 +4,41 @@
 mysql-enc is a puppet enc (external node classifier) that uses mysql for the backend.
 
 == Installation
+These scripts only depend on one gem: mysql2.  So if you already have a setup you can just 'gem install mysql2'.  If not I'll do an example in ubuntu.
+
+These are the steps I took on a fresh install of ubuntu 12.04:
+
+ sudo apt-get install mysql-server rubygems libmysqlclient-dev
+ sudo gem install mysql2
+
+Now git clone the repo and create the config.yml file with your mysql creds. In my example I have the following:
+
+ db_host: localhost
+ db_user: root
+ db_password: secretpassword
+ db_name: enc
+
+The db_name doesn't really matter, it will be created. Now you can run the createDB.rb to initialize the database.
+
+ ./createDB.rb
+
+And you're all setup.  Now to add a node do something like this:
+
+ ./addNode.rb web.test.domain testing web_server users
+
+And test to see if it's in there:
+ 
+ ./classify.rb web.test.domain
+
+You should get something like this:
+
+ --- 
+ classes: 
+ - web_server
+ - users
+ environment: testing
+
+== Configuration
 
 You will need to create a file called config.yml in the directory with the scripts.  It should look like this:
 
@@ -11,7 +46,6 @@ You will need to create a file called config.yml in the directory with the scrip
  db_user: DB_USERNAME
  db_password: DB_PASSWORD
  db_name: NAME_OF_THE_DB_YOU_WOULD_LIKE_TO_USE
-
 
 == Documentation
 

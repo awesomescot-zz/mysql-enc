@@ -32,11 +32,10 @@ END
   exit 1
 end
 
-puts config
 
-@db_host = "localhost"
-@db_user = "root"
-@db_password = "puppet"
-@db_name = "enc"
+@db_host = config["db_host"]
+@db_user = config["db_user"]
+@db_password = config["db_password"]
+@db_name = config["db_name"]
 
 

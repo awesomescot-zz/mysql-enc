@@ -7,7 +7,7 @@ require "mysql2"
 
 
 opt_parser = OptionParser.new do |opt|
-  opt.banner = "Usage: addNode.rb NODENAME [CLASSES]"
+  opt.banner = "Usage: addNode.rb NODENAME ENVIRONMENT [CLASSES]"
   opt.separator  ""
   opt.separator  "eg: addNode.rb web2 web_server api_lb_server"
   opt.separator  ""
@@ -20,12 +20,12 @@ end
 
 opt_parser.parse!
 
-if ARGV.length == 0
+if ARGV.length < 2
   puts opt_parser
   exit
 end
 
-node_name,*classes = ARGV
+node_name,env,*classes = ARGV
 
 @db_host = "localhost"
 @db_user = "root"
@@ -39,6 +39,7 @@ class_string = ""
 if classes
   class_string = classes.join(",")
 end
-query = "INSERT INTO nodes (nodename, classes) VALUES (\"#{node_name}\",\"#{class_string}\")"
+fqdn = "#{node_name}.datareadings.com"
+query = "INSERT INTO nodes (hostname, fqdn, env, classes) VALUES (\"#{node_name}\",\"#{fqdn}\",\"#{env}\",\"#{class_string}\")"
 puts query
 puts client.query(query)

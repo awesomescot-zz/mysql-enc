@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require "rubygems"
 #gem "mysql2", "~> 0.2.7"
 require "mysql2"
@@ -16,4 +18,4 @@ client.query("show databases").each(:as => :array) do |row|
 end
 client.query("grant all on enc.* to '%'@'localhost';")
 client.query("use enc")
-client.query("CREATE TABLE nodes ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, nodename VARCHAR(100), classes VARCHAR(200), created TIMESTAMP DEFAULT NOW() )")
+client.query("CREATE TABLE nodes ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, hostname VARCHAR(100), fqdn VARCHAR(100), env VARCHAR(100), classes VARCHAR(200), created TIMESTAMP DEFAULT NOW() )")

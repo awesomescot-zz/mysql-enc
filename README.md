@@ -27,11 +27,4 @@ eg. classify.rb test.my.domain
 ### createDB.rb
 This will drop and then create a db called 'enc'
 
-It will then create the table:
-CREATE TABLE nodes ( 
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-  hostname VARCHAR(100), 
-  fqdn VARCHAR(100), 
-  env VARCHAR(100), 
-  classes VARCHAR(200), 
-  created TIMESTAMP DEFAULT NOW() )
+It will then create the table called nodes with id, hostname, fqdn, env, classes, time_created

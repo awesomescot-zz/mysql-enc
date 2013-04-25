@@ -38,6 +38,8 @@ You should get something like this:
  - users
  environment: testing
 
+I do have a Gemfile, so bundle install should also install the mysql2 gem, but I couldn't get it to work.  Feel free to give me advice.
+
 == Configuration
 
 You will need to create a file called config.yml in the directory with the scripts.  It should look like this:

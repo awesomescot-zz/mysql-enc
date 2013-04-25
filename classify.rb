@@ -13,4 +13,6 @@ if class_string.any?
   classes = class_string.first["classes"].split(",")
   env = class_string.first["env"]
   puts({ "classes" => classes, "environment" => env }.to_yaml)
+else
+  puts({ "classes" => nil, "environment" => nil }.to_yaml)
 end

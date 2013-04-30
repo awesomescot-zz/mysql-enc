@@ -30,7 +30,6 @@ client = Mysql2::Client.new(:host => @db_host, :username => @db_user, :password 
 results = client.query("SELECT * FROM nodes where fqdn = \"#{fqdn}\"")
 if results.any?
   client.query("DELETE FROM nodes WHERE fqdn = '#{fqdn}'")
-  exit
 else
   puts "There is no entry for #{fqdn}, so I can't delete it"
   exit 1
